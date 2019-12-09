@@ -1,0 +1,8 @@
+[options]
+prefix = /Users/pauri/PAV
+libdir = lib
+buildtype = release
+backend = ninja
+
+[properties]
+
