@@ -138,6 +138,16 @@ const vector<float> & seno::synthesize() {
   Deberá explicar detalladamente cómo se manifiestan los parámetros del efecto (frecuencia e índice de modulación) en
   la señal generada (se valorará que la explicación esté contenida en las propias gráficas, sin necesidad de
   *literatura*).
+  
+  <img src="img/cap-seno.png" width="640" align="center">
+  
+  <img src="img/cap-tremolo.png" width="640" align="center">
+  
+  <img src="img/cap-vibrato1.png" width="640" align="center">
+  
+  <img src="img/cap-vibrato2.png" width="640" align="center">
+  
+  
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué resultado ha
   producido. Incluya, en el directorio `work/ejemplos`, los ficheros necesarios para apreciar el efecto, e indique,
   a continuación, la orden necesaria para generar los ficheros de audio usando el programa `synth`.
