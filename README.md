@@ -140,6 +140,8 @@ const vector<float> & seno::synthesize() {
   *literatura*).
   
   
+  
+  
   Primero de todo, vemos la imágen de dos notas consecutivas (Do y Re) sin ningún efecto. Esta imagen nos servirá de referencia para comparar con las modificadas con los efectos del trémolo y el vibrato.
   
   <img src="img/cap-seno.png" width="640" align="center">
@@ -157,6 +159,10 @@ const vector<float> & seno::synthesize() {
   Aquí vemos como el vibrato oscila longitudinalmente, comprimiendo y estirando la frecuencia. Esto se puede interpretar como subidas y bajadas de tono dentro de una misma nota, lo cual no tendría mucho sentido si se hiciese, como en esta segunda imagen, de manera muy marcada, pero si se hace en oscilaciones breves y rápidas la alteración es mínima y se genera un efecto agradable al oído.
   
   <img src="img/cap-vibrato2.png" width="640" align="center">
+  
+  
+  
+  
   
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué resultado ha
   producido. Incluya, en el directorio `work/ejemplos`, los ficheros necesarios para apreciar el efecto, e indique,
