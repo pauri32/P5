@@ -8,7 +8,7 @@
 using namespace upc;
 using namespace std;
 
-InstrumentDumb::sintesisFM(const std::string &param) 
+sintesisFM::sintesisFM(const std::string &param) 
   : adsr(SamplingRate, param) {
   bActive = false;
   x.resize(BSIZE);
@@ -56,7 +56,7 @@ InstrumentDumb::sintesisFM(const std::string &param)
 }
 
 
-void InstrumentDumb::command(long cmd, long note, long vel) {
+void sintesisFM::command(long cmd, long note, long vel) {
   if (cmd == 9) {		//'Key' pressed: attack begins
     bActive = true;
     adsr.start();
@@ -84,7 +84,7 @@ void InstrumentDumb::command(long cmd, long note, long vel) {
   }
 }
 
-const vector<float> & seno::synthesize() {
+const vector<float> & sintesisFM::synthesize() {
   if (not adsr.active()) {
     x.assign(x.size(), 0);
     bActive = false;
