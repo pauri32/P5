@@ -1,5 +1,5 @@
-#ifndef SENO
-#define SENO
+#ifndef SINTESISFM
+#define SINTESISFM
 
 #include <vector>
 #include <string>
@@ -16,8 +16,9 @@ namespace upc {
     float step; // Saltos de frecuencia 
     float alfa; // Frecuencia de carry (rad/s) || Notación paper (pag 1)
     float beta; // Frecuencia modulacion (rad/s) || Notación paper (pag 1)
-    vector<float> E(); //Envolvente temporal 
-
+    float I;
+    std::vector<float> E; //Envolvente temporal 
+    std::vector<float> tbl;
   public:
     sintesisFM(const std::string &param = "");
     void command(long cmd, long note, long velocity=1);

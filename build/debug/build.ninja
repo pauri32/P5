@@ -67,6 +67,10 @@ build src/25a6634@@synth@exe/instruments_seno.cpp.o: cpp_COMPILER ../../src/inst
  DEPFILE = src/25a6634@@synth@exe/instruments_seno.cpp.o.d
  ARGS = -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g
 
+build src/25a6634@@synth@exe/instruments_sintesisFM.cpp.o: cpp_COMPILER ../../src/instruments/sintesisFM.cpp
+ DEPFILE = src/25a6634@@synth@exe/instruments_sintesisFM.cpp.o.d
+ ARGS = -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g
+
 build src/25a6634@@synth@exe/synth_envelope_adsr.cpp.o: cpp_COMPILER ../../src/synth/envelope_adsr.cpp
  DEPFILE = src/25a6634@@synth@exe/synth_envelope_adsr.cpp.o.d
  ARGS = -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g
@@ -99,7 +103,7 @@ build src/25a6634@@synth@exe/effects_vibrato.cpp.o: cpp_COMPILER ../../src/effec
  DEPFILE = src/25a6634@@synth@exe/effects_vibrato.cpp.o.d
  ARGS = -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g
 
-build src/synth: cpp_LINKER src/25a6634@@synth@exe/instruments_instrument.cpp.o src/25a6634@@synth@exe/instruments_instrument_dumb.cpp.o src/25a6634@@synth@exe/instruments_seno.cpp.o src/25a6634@@synth@exe/synth_envelope_adsr.cpp.o src/25a6634@@synth@exe/synth_midi_score.cpp.o src/25a6634@@synth@exe/synth_multinote_instr.cpp.o src/25a6634@@synth@exe/synth_orchest.cpp.o src/25a6634@@synth@exe/synth_synthesizer.cpp.o src/25a6634@@synth@exe/effects_effect.cpp.o src/25a6634@@synth@exe/effects_tremolo.cpp.o src/25a6634@@synth@exe/effects_vibrato.cpp.o | src/pav/libpav.a
+build src/synth: cpp_LINKER src/25a6634@@synth@exe/instruments_instrument.cpp.o src/25a6634@@synth@exe/instruments_instrument_dumb.cpp.o src/25a6634@@synth@exe/instruments_seno.cpp.o src/25a6634@@synth@exe/instruments_sintesisFM.cpp.o src/25a6634@@synth@exe/synth_envelope_adsr.cpp.o src/25a6634@@synth@exe/synth_midi_score.cpp.o src/25a6634@@synth@exe/synth_multinote_instr.cpp.o src/25a6634@@synth@exe/synth_orchest.cpp.o src/25a6634@@synth@exe/synth_synthesizer.cpp.o src/25a6634@@synth@exe/effects_effect.cpp.o src/25a6634@@synth@exe/effects_tremolo.cpp.o src/25a6634@@synth@exe/effects_vibrato.cpp.o | src/pav/libpav.a
  LINK_ARGS = -Wl,-dead_strip_dylibs src/pav/libpav.a -lm -lsndfile -Wl,-headerpad_max_install_names -Wl,-rpath,@loader_path/pav
 
 build src/midi2scores/e3a398d@@midi2skini@exe/src_midi2skini.cpp.o: cpp_COMPILER ../../src/midi2scores/src/midi2skini.cpp
