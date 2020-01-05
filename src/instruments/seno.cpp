@@ -38,10 +38,10 @@ void seno::command(long cmd, long note, long vel) {
   if (cmd == 9) {		//'Key' pressed: attack begins
     bActive = true;
     adsr.start();
-    phase = 0;
+    index = 0;
 	  A = vel / 127.;
     float F0 = (440.00*pow(2,((float)note-69.00)/12.00))/SamplingRate;
-    step = 2*M_PI*F0;
+    step = tbl.size()*F0;
   }
 
   else if (cmd == 8) {	//'Key' released: sustain ends, release begins
@@ -63,10 +63,11 @@ const vector<float> & seno::synthesize() {
     return x;
 
   for (unsigned int i=0; i<x.size(); ++i) {
-    x[i] = A*sin(phase);
-    phase += step;
-    if (index == tbl.size())
+    if (round(index*step) == tbl.size()){
       index = 0;
+    }
+    x[i] = A*tbl[round(index*step)];
+    index++;
   }
   adsr(x); //apply envelope to x and update internal status of ADSR
 
