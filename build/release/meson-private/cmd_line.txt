@@ -1,0 +1,8 @@
+[options]
+prefix = /Users/Almendra/PAV
+libdir = lib
+buildtype = release
+backend = ninja
+
+[properties]
+
