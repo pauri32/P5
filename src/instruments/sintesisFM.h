@@ -1,25 +1,26 @@
-#ifndef SENO
-#define SENO
+#ifndef SINTESISFM
+#define SINTESISFM
 
 #include <vector>
 #include <string>
 #include "instrument.h"
 #include "envelope_adsr.h"
 
+
 namespace upc {
-  class seno: public upc::Instrument {
+  class sintesisFM: public upc::Instrument {
     EnvelopeADSR adsr;
     unsigned int index;
-	  float A;
+    //VE: Variables del Instrumento FM
+    float A;
+    float step; // Saltos de frecuencia
+    float alfa; // Frecuencia de carry (rad/s) || Notación paper (pag 1)
+    float beta; // Frecuencia modulacion (rad/s) || Notación paper (pag 1)
     float I;
-    float phase_c;
-    float step_c;
-    float phase_m;
-    float step_m;
-    std::vector<float> tbl_c;
-    std::vector<float> tbl_m;
+    std::vector<float> E; //Envolvente temporal
+    std::vector<float> tbl;
   public:
-    seno(const std::string &param = "");
+    sintesisFM(const std::string &param = "");
     void command(long cmd, long note, long velocity=1);
     const std::vector<float> & synthesize();
     bool is_active() const {return bActive;}
