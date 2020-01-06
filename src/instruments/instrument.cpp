@@ -1,6 +1,7 @@
 #include <iostream>
 #include "instrument_dumb.h"
 #include "seno.h"
+#include "senovibrato.h"
 #include "sintesisFM.h"
 
 /*
@@ -23,9 +24,11 @@ namespace upc {
     if (name == "seno") {
       pInst = (Instrument *) new seno(parameters);
     }
-
-    if(name == "sintesisFM"){
-     pInst = (Instrument *) new sintesisFM(parameters);
+    if (name == "senovibrato") {
+      pInst = (Instrument *) new senovibrato(parameters);
+    }
+    if (name == "sintesisFM") {
+      pInst = (Instrument *) new sintesisFM(parameters);
     }
     return pInst;
   }
