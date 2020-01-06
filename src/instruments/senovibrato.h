@@ -13,7 +13,7 @@ namespace upc {
 	  float A;
     float I, N1, N2;
     float phase;
-    float step, step_c, step_m;
+    float step, mod_c, phase_m, alpha_m;
     std::vector<float> tbl;
   public:
     senovibrato(const std::string &param = "");

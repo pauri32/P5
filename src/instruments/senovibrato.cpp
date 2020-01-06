@@ -23,7 +23,7 @@ senovibrato::senovibrato(const std::string &param)
   if (!kv.to_int("N",N))
     N = 40; //default value
 
-  N1 = 3;
+  N1 = 10;
   N2 = 1;
   I = 0.000328;
 
@@ -49,8 +49,10 @@ void senovibrato::command(long cmd, long note, long vel) {
     float FC = N1*F0;
     float FM = N2*F0;
 
-    step_c = tbl.size()*FC;
-    step_m = tbl.size()*FM;
+    step = tbl.size()*F0;
+    mod_c = tbl.size()*FC;
+    phase_m = 0;
+    alpha_m = 2*M_PI*FM;
   }
 
   else if (cmd == 8) {	//'Key' released: sustain ends, release begins
@@ -72,11 +74,12 @@ const vector<float> & senovibrato::synthesize() {
     return x;
 
   for (unsigned int i=0; i<x.size(); ++i) {
-    if (round(step_c*index + I*tbl[step_m*index]) == tbl.size()){
+    if (round(step*index) == tbl.size()){
       index = 0;
     }
-    x[i] = A*tbl[round(step_c*index + I*tbl[round(step_m*index)])];
-    index++;
+    x[i] = A*tbl[round(step*index)];
+    index += (1 + I*sin(phase_m));
+    phase_m += alpha_m;
   }
   adsr(x); //apply envelope to x and update internal status of ADSR
 
