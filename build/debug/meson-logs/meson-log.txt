@@ -1,4 +1,4 @@
-Build started at 2020-01-05T17:44:34.219362
+Build started at 2020-01-06T21:24:19.145369
 Main binary: /usr/local/opt/python/bin/python3.7
 Python system: Darwin
 The Meson build system
@@ -16,8 +16,8 @@ Configuring Doxyfile using configuration
 Build targets in project: 5
 Found ninja-1.9.0 at /usr/local/bin/ninja
 Running compile:
-Working directory:  /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpx6lx7fhd
-Command line:  c++ /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpx6lx7fhd/testfile.cpp -o /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpx6lx7fhd/output.obj -pipe -c -std=c++11 
+Working directory:  /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpnpu3zjfe
+Command line:  c++ /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpnpu3zjfe/testfile.cpp -o /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpnpu3zjfe/output.obj -pipe -c -std=c++11 
 
 Code:
  int i = static_cast<int>(0);
@@ -27,8 +27,8 @@ Compiler stderr:
  
 Compiler accepts -std=c++11: YES
 Running compile:
-Working directory:  /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpl8ya9u49
-Command line:  c++ /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpl8ya9u49/testfile.cpp -o /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmpl8ya9u49/output.obj -pipe -c -O0 -fpermissive --print-search-dirs 
+Working directory:  /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmp9ado_m29
+Command line:  c++ /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmp9ado_m29/testfile.cpp -o /var/folders/8x/lzlpzl8s4l11g002grppr_km0000gn/T/tmp9ado_m29/output.obj -pipe -c -O0 -fpermissive --print-search-dirs 
 
 Code:
  
