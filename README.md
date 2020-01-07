@@ -32,8 +32,9 @@ visualizar el funcionamiento de la curva ADSR.
 	* D:	De A al segundo periodo la curva decrece hasta llegar a una constante.
 	* S:	De B al tercer periodo la curva se mantiene constante.
 	* R:	De S al tercer periodo la curva vuelve a decaer hasta 0.
-	
-	
+	<img src="img/adsrcte.png" width="640" align="center">
+
+
 * Un instrumento *percusivo*, como una guitarra o un piano, en el que el sonido tenga un ataque rápido, no haya
   mantenimiemto y el sonido se apague lentamente.
   - Para un instrumento de este tipo, tenemos dos situaciones posibles:
@@ -138,7 +139,13 @@ const vector<float> & seno::synthesize() {
   una gráfica en la que se vean claramente (use pelotitas en lugar de líneas) los valores de la tabla y los de la
   señal generada.
   * En la tabla se guarda un periodo de un seno con N muestras. En el momento de usar la tabla, lo que decidiremos es la velocidad con la que cogemos estas muestras, con el objetivo de recorrer el seno de la tabla más rápido, con lo que generaremos frecuencias más altas, o más lento, para frecuencias más graves.
-  Para hacer un ejemplo que sea claro y simple, vamos a suponer que la tabla se ha registrado con solo 4 valores: (0,1,0,-1).
+  Para hacer un ejemplo que sea claro y simple, vamos a suponer que la tabla se ha registrado con solo 8 valores: (0,0.5,1,0.5,0,-0.5,-1,-0.5).
+  <img src="img/senos.png" width="640" align="center">
+  * La primera gráfica muestra un periodo básico y las siguientes tienen el doble de muestras que la primera.
+  * Para el primer caso, la tabla se recorre con un `step = 2`, por lo que el seno va más rápido y la frecuencia es más alta
+  * Para la segunda gráfica, el step es más pequeño, `step = 1`, por lo que se recorre la tabla punto a punto y la frecuencia es más lenta.
+
+  
 - Si ha implementado la síntesis por tabla almacenada en fichero externo, incluya a continuación el código del método
   `command()`.
 
@@ -148,27 +155,27 @@ const vector<float> & seno::synthesize() {
   Deberá explicar detalladamente cómo se manifiestan los parámetros del efecto (frecuencia e índice de modulación) en
   la señal generada (se valorará que la explicación esté contenida en las propias gráficas, sin necesidad de
   *literatura*).
-  
-  
+
+
   	* Primero de todo, vemos la imágen de dos notas consecutivas (Do y Re) sin ningún efecto. Esta imagen nos servirá de referencia para comparar con las modificadas con los efectos del trémolo y el vibrato.
-  
+
   		<img src="img/cap-seno.png" width="640" align="center">
-  
-  
+
+
  	 * La siguiente señal corresponde a las mismas dos notas anteriores, pero la segunda ha sido alterada con un trémolo. Como vemos, este efecto introduce una variación en la amplitud del Re, independientemente del ataque y la caída.
-  
+
   		<img src="img/cap-tremolo.png" width="640" align="center">
-  
-  
+
+
  	 * En las siguientes imágenes la segunda nota ha sido modificada con un vibrato. La primera imagen corresponde a un vibrato natural, pero como no se apreciaban los efectos en la señal, hemos generado un segundo vibrato que exagerase este efecto.
-  
+
  	 	<img src="img/cap-vibrato1.png" width="640" align="center">
-  
+
  	 * Aquí vemos como el vibrato oscila longitudinalmente, comprimiendo y estirando la frecuencia. Esto se puede interpretar como subidas y bajadas de tono dentro de una misma nota, lo cual no tendría mucho sentido si se hiciese, como en esta segunda imagen, de manera muy marcada, pero si se hace en oscilaciones breves y rápidas la alteración es mínima y se genera un efecto agradable al oído.
-  
+
   		<img src="img/cap-vibrato2.png" width="640" align="center">
-  
-  
+
+
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué resultado ha
   producido. Incluya, en el directorio `work/ejemplos`, los ficheros necesarios para apreciar el efecto, e indique,
   a continuación, la orden necesaria para generar los ficheros de audio usando el programa `synth`.
