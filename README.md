@@ -84,7 +84,7 @@ seno::seno(const std::string &param)
 
   //Create a tbl with one period of a sinusoidal wave
   tbl.resize(N);
-  float phase = 0, step = 2 * M_PI /(float) N;
+  phase = 0, step = 2 * M_PI /(float) N;
   index = 0;
   for (int i=0; i < N ; ++i) {
     tbl[i] = sin(phase);
@@ -97,10 +97,10 @@ void seno::command(long cmd, long note, long vel) {
   if (cmd == 9) {		//'Key' pressed: attack begins
     bActive = true;
     adsr.start();
-    phase = 0;
+    index = 0;
 	  A = vel / 127.;
     float F0 = (440.00*pow(2,((float)note-69.00)/12.00))/SamplingRate;
-    step = 2*M_PI*F0;
+    step = tbl.size()*F0;
   }
 
   else if (cmd == 8) {	//'Key' released: sustain ends, release begins
@@ -122,10 +122,11 @@ const vector<float> & seno::synthesize() {
     return x;
 
   for (unsigned int i=0; i<x.size(); ++i) {
-    x[i] = A*sin(phase);
-    phase += step;
-    if (index == tbl.size())
+    if (round(index*step) == tbl.size()){
       index = 0;
+    }
+    x[i] = A*tbl[round(index*step)];
+    index++;
   }
   adsr(x); //apply envelope to x and update internal status of ADSR
 
@@ -136,6 +137,8 @@ const vector<float> & seno::synthesize() {
 - Explique qué método se ha seguido para asignar un valor a la señal a partir de los contenidos en la tabla, e incluya
   una gráfica en la que se vean claramente (use pelotitas en lugar de líneas) los valores de la tabla y los de la
   señal generada.
+  * En la tabla se guarda un periodo de un seno con N muestras. En el momento de usar la tabla, lo que decidiremos es la velocidad con la que cogemos estas muestras, con el objetivo de recorrer el seno de la tabla más rápido, con lo que generaremos frecuencias más altas, o más lento, para frecuencias más graves.
+  Para hacer un ejemplo que sea claro y simple, vamos a suponer que la tabla se ha registrado con solo 4 valores: (0,1,0,-1).
 - Si ha implementado la síntesis por tabla almacenada en fichero externo, incluya a continuación el código del método
   `command()`.
 
@@ -200,6 +203,6 @@ Use el programa `synth` para generar canciones a partir de su partitura MIDI. Co
 También puede orquestar otros temas más complejos, como la banda sonora de *Hawaii5-0* o el villacinco de John
 Lennon *Happy Xmas (War Is Over)* (fichero `The_Christmas_Song_Lennon.sco`), o cualquier otra canción de su agrado
 o composición. Se valorará la riqueza instrumental, su modelado y el resultado final.
-- Coloque los ficheros generados, junto a sus ficheros `score`, `instruments` y `efffects`, en el directorio
+- Coloque los ficheros generados, junto a sus ficheros `score`, `instruments` y `effects`, en el directorio
   `work/music`.
 - Indique, a continuación, la orden necesaria para generar cada una de las señales usando los distintos ficheros.
