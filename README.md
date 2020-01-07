@@ -195,11 +195,17 @@ en semitonos.
 
 - Use el instrumento para generar un vibrato de *parámetros razonables* e incluya una gráfica en la que se vea,
   claramente, la correspondencia entre los valores `N1`, `N2` e `I` con la señal obtenida.
+
+	<img src="img/Captura_senovibrato.png" width="480" align="center">
+
+En esta imagen podemos ver la fft de la señal senovibrato.wav muestreada a 235232, utilizando N1=3 y N2=1. Podemos ver que los 8 principales picos correspondientes a las notas del doremi y a un lado los picos resultantes al vibrato. Alteando los valores de I veríamos como estos picos se reparten más o menos pues la amplitud del pico principal se repartiría entre los picos generados por el vibrato. Aumentando la I el ancho de banda aumentaría dificultando la identificación de cada nota. 
+
 - Use el instrumento para generar un sonido tipo clarinete y otro tipo campana. Tome los parámetros del sonido (N1,
   N2 e I) y de la envolvente ADSR del citado artículo. Con estos sonidos, genere sendas escalas diatónicas (fichero
   `doremi.sco`) y ponga el resultado en los ficheros `work/doremi/clarinete.wav` y `work/doremi/campana.work`.
   * También puede colgar en el directorio work/doremi otras escalas usando sonidos *interesantes*. Por ejemplo,
     violines, pianos, percusiones, espadas láser de la [Guerra de las Galaxias](https://www.starwars.com/), etc.
+    * En el directorio `work/doremi`se pueden encontrar los `.orc` y los `.wav` de cada instrumento. Hemos generado tres diferentes: bell (campana), clarinet (clarinete) y brass (trombón).
 
 ### Orquestación usando el programa synth.
 
@@ -210,8 +216,11 @@ Use el programa `synth` para generar canciones a partir de su partitura MIDI. Co
 - En este (lamentable) arreglo, la pista 1 corresponde al instrumento solista (puede ser un piano, flautas, violines,
   etc.), y la 2 al bajo (bajo eléctrico, contrabajo, tuba, etc.).
 - Coloque el resultado, junto con los ficheros necesarios para generarlo, en el directorio `work/music`.
+  * Los ficheros están en el directorio indicado. Debido a la saturación que se genera con dos instrumentos a la vez el .wav no se acaba de escuchar bien (petardea cuando tiene que sonar más fuerte), pero veíamos poco factible tocar la amplitud del .sco en cada línea.
 - Indique, a continuación, la orden necesaria para generar la señal (suponiendo que todos los archivos necesarios
   están en direcotorio indicado).
+   * Para generar los ficheros de la canción orquestada, *You've got a friend in me*, desde el directorio `P5/work/music` se ejecuta la siguiente orden: `synth toy_story.orc ../../samples/ToyStory_A_Friend_in_me.sco toy_story.wav; play toy_story.wav`
+
 
 También puede orquestar otros temas más complejos, como la banda sonora de *Hawaii5-0* o el villacinco de John
 Lennon *Happy Xmas (War Is Over)* (fichero `The_Christmas_Song_Lennon.sco`), o cualquier otra canción de su agrado
@@ -219,3 +228,4 @@ o composición. Se valorará la riqueza instrumental, su modelado y el resultado
 - Coloque los ficheros generados, junto a sus ficheros `score`, `instruments` y `effects`, en el directorio
   `work/music`.
 - Indique, a continuación, la orden necesaria para generar cada una de las señales usando los distintos ficheros.
+ 
