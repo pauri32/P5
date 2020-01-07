@@ -140,7 +140,11 @@ const vector<float> & seno::synthesize() {
   señal generada.
   * En la tabla se guarda un periodo de un seno con N muestras. En el momento de usar la tabla, lo que decidiremos es la velocidad con la que cogemos estas muestras, con el objetivo de recorrer el seno de la tabla más rápido, con lo que generaremos frecuencias más altas, o más lento, para frecuencias más graves.
   Para hacer un ejemplo que sea claro y simple, vamos a suponer que la tabla se ha registrado con solo 8 valores: (0,0.5,1,0.5,0,-0.5,-1,-0.5).
-  <img src="img/senos.png" width="640" align="center">
+  
+  
+  <img src="img/senos.png" width="320" align="center">
+  
+  
   * La primera gráfica muestra un periodo básico y las siguientes tienen el doble de muestras que la primera.
   * Para el primer caso, la tabla se recorre con un `step = 2`, por lo que el seno va más rápido y la frecuencia es más alta
   * Para la segunda gráfica, el step es más pequeño, `step = 1`, por lo que se recorre la tabla punto a punto y la frecuencia es más lenta.
