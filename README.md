@@ -32,7 +32,9 @@ visualizar el funcionamiento de la curva ADSR.
 	* D:	De A al segundo periodo la curva decrece hasta llegar a una constante.
 	* S:	De B al tercer periodo la curva se mantiene constante.
 	* R:	De S al tercer periodo la curva vuelve a decaer hasta 0.
-	<img src="img/adsrcte.png" width="640" align="center">
+	
+	
+		<img src="img/adsrcte.png" width="480" align="center">
 
 
 * Un instrumento *percusivo*, como una guitarra o un piano, en el que el sonido tenga un ataque rápido, no haya
@@ -142,7 +144,7 @@ const vector<float> & seno::synthesize() {
   Para hacer un ejemplo que sea claro y simple, vamos a suponer que la tabla se ha registrado con solo 8 valores: (0,0.5,1,0.5,0,-0.5,-1,-0.5).
   
   
-  <img src="img/senos.png" width="320" align="center">
+  <img src="img/senos.png" width="640" align="center">
   
   
   * La primera gráfica muestra un periodo básico y las siguientes tienen el doble de muestras que la primera.
