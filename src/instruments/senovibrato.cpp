@@ -23,9 +23,9 @@ senovibrato::senovibrato(const std::string &param)
   if (!kv.to_int("N",N))
     N = 40; //default value
 
-  N1 = 10;
-  N2 = 1;
-  I = 0.000328;
+  //N1 = 10;
+  //N2 = 1;
+  //I = 0.000328;
 
   //Create a tbl with one period of a sinusoidal wave
   tbl.resize(N);

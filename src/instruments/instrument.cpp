@@ -3,6 +3,8 @@
 #include "seno.h"
 #include "senovibrato.h"
 #include "sintesisFM.h"
+#include "bell.h"
+
 
 /*
   For each new instrument:
@@ -29,6 +31,9 @@ namespace upc {
     }
     if (name == "sintesisFM") {
       pInst = (Instrument *) new sintesisFM(parameters);
+    }
+    if (name == "bell") {
+      pInst = (Instrument *) new seno(parameters);
     }
     return pInst;
   }
