@@ -27,6 +27,13 @@ visualizar el funcionamiento de la curva ADSR.
 
 * Un instrumento con una envolvente ADSR genérica, para el que se aprecie con claridad cada uno de sus parámetros:
   ataque (A), caída (D), mantenimiento (S) y liberación (R).
+  - La envolvente ADSR genérica que hemos generado es tal que todos los parámetros son iguales a 0.1. Con la siguiente gráfica se puede ver con claridad cada uno de los estados de la curva:
+  	* A:	De 0 al primer periodo la curva crece.
+	* D:	De A al segundo periodo la curva decrece hasta llegar a una constante.
+	* S:	De B al tercer periodo la curva se mantiene constante.
+	* R:	De S al tercer periodo la curva vuelve a decaer hasta 0.
+	
+	
 * Un instrumento *percusivo*, como una guitarra o un piano, en el que el sonido tenga un ataque rápido, no haya
   mantenimiemto y el sonido se apague lentamente.
   - Para un instrumento de este tipo, tenemos dos situaciones posibles:
@@ -140,28 +147,23 @@ const vector<float> & seno::synthesize() {
   *literatura*).
   
   
+  	* Primero de todo, vemos la imágen de dos notas consecutivas (Do y Re) sin ningún efecto. Esta imagen nos servirá de referencia para comparar con las modificadas con los efectos del trémolo y el vibrato.
+  
+  		<img src="img/cap-seno.png" width="640" align="center">
   
   
-  Primero de todo, vemos la imágen de dos notas consecutivas (Do y Re) sin ningún efecto. Esta imagen nos servirá de referencia para comparar con las modificadas con los efectos del trémolo y el vibrato.
+ 	 * La siguiente señal corresponde a las mismas dos notas anteriores, pero la segunda ha sido alterada con un trémolo. Como vemos, este efecto introduce una variación en la amplitud del Re, independientemente del ataque y la caída.
   
-  <img src="img/cap-seno.png" width="640" align="center">
-  
-  
-  La siguiente señal corresponde a las mismas dos notas anteriores, pero la segunda ha sido alterada con un trémolo. Como vemos, este efecto introduce una variación en la amplitud del Re, independientemente del ataque y la caída.
-  
-  <img src="img/cap-tremolo.png" width="640" align="center">
+  		<img src="img/cap-tremolo.png" width="640" align="center">
   
   
-  En las siguientes imágenes la segunda nota ha sido modificada con un vibrato. La primera imagen corresponde a un vibrato natural, pero como no se apreciaban los efectos en la señal, hemos generado un segundo vibrato que exagerase este efecto.
+ 	 * En las siguientes imágenes la segunda nota ha sido modificada con un vibrato. La primera imagen corresponde a un vibrato natural, pero como no se apreciaban los efectos en la señal, hemos generado un segundo vibrato que exagerase este efecto.
   
-  <img src="img/cap-vibrato1.png" width="640" align="center">
+ 	 	<img src="img/cap-vibrato1.png" width="640" align="center">
   
-  Aquí vemos como el vibrato oscila longitudinalmente, comprimiendo y estirando la frecuencia. Esto se puede interpretar como subidas y bajadas de tono dentro de una misma nota, lo cual no tendría mucho sentido si se hiciese, como en esta segunda imagen, de manera muy marcada, pero si se hace en oscilaciones breves y rápidas la alteración es mínima y se genera un efecto agradable al oído.
+ 	 * Aquí vemos como el vibrato oscila longitudinalmente, comprimiendo y estirando la frecuencia. Esto se puede interpretar como subidas y bajadas de tono dentro de una misma nota, lo cual no tendría mucho sentido si se hiciese, como en esta segunda imagen, de manera muy marcada, pero si se hace en oscilaciones breves y rápidas la alteración es mínima y se genera un efecto agradable al oído.
   
-  <img src="img/cap-vibrato2.png" width="640" align="center">
-  
-  
-  
+  		<img src="img/cap-vibrato2.png" width="640" align="center">
   
   
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué resultado ha
