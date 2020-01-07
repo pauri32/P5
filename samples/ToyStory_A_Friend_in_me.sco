@@ -1,13 +1,13 @@
 # ControlChange	=0        	1	0	0
-# // time:=0 track:1 midi-data: 192 0 
+# // time:=0 track:1 midi-data: 192 0
 # ControlChange	=0        	2	0	0
-# // time:=0 track:2 midi-data: 193 43 
+# // time:=0 track:2 midi-data: 193 43
 0	9	2	39	80
-# // time:=0 track:0 midi-data: 255 88 4 4 2 96 8 
+# // time:=0 track:0 midi-data: 255 88 4 4 2 96 8
 # // time:=0 tempo: 116
-# // time:=0 track:1 midi-data: 255 88 4 4 2 96 8 
+# // time:=0 track:1 midi-data: 255 88 4 4 2 96 8
 # // time:=0 tempo: 116
-# // time:=0 track:2 midi-data: 255 88 4 4 2 96 8 
+# // time:=0 track:2 midi-data: 255 88 4 4 2 96 8
 # // time:=0 tempo: 116
 60	9	1	67	80
 35	8	2	39	64
@@ -1566,12 +1566,12 @@
 # // time:=132.584 tempo: 61
 # // time:=132.584 tempo: 61
 # // time:=132.584 tempo: 61
-# // time:=132.584 track:0 midi-data: 255 47 0 
+# // time:=132.584 track:0 midi-data: 255 47 0
 2238	8	1	58	64
 0	8	1	63	64
 0	8	1	67	64
 0	8	2	39	64
 0	8	2	51	64
-# // time:=132.779 track:1 midi-data: 255 47 0 
-# // time:=132.779 track:2 midi-data: 255 47 0 
-# 
+# // time:=132.779 track:1 midi-data: 255 47 0
+# // time:=132.779 track:2 midi-data: 255 47 0
+#

@@ -37,21 +37,15 @@
   },
   {
     "directory": "/Users/pauri/PAV/P5/build/release",
-    "command": "c++ -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -O3 -MD -MQ 'src/25a6634@@synth@exe/instruments_senovibrato.cpp.o' -MF 'src/25a6634@@synth@exe/instruments_senovibrato.cpp.o.d' -o 'src/25a6634@@synth@exe/instruments_senovibrato.cpp.o' -c ../../src/instruments/senovibrato.cpp",
-    "file": "../../src/instruments/senovibrato.cpp",
-    "output": "src/25a6634@@synth@exe/instruments_senovibrato.cpp.o"
-  },
-  {
-    "directory": "/Users/pauri/PAV/P5/build/release",
     "command": "c++ -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -O3 -MD -MQ 'src/25a6634@@synth@exe/instruments_sintesisFM.cpp.o' -MF 'src/25a6634@@synth@exe/instruments_sintesisFM.cpp.o.d' -o 'src/25a6634@@synth@exe/instruments_sintesisFM.cpp.o' -c ../../src/instruments/sintesisFM.cpp",
     "file": "../../src/instruments/sintesisFM.cpp",
     "output": "src/25a6634@@synth@exe/instruments_sintesisFM.cpp.o"
   },
   {
     "directory": "/Users/pauri/PAV/P5/build/release",
-    "command": "c++ -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -O3 -MD -MQ 'src/25a6634@@synth@exe/instruments_bell.cpp.o' -MF 'src/25a6634@@synth@exe/instruments_bell.cpp.o.d' -o 'src/25a6634@@synth@exe/instruments_bell.cpp.o' -c ../../src/instruments/bell.cpp",
-    "file": "../../src/instruments/bell.cpp",
-    "output": "src/25a6634@@synth@exe/instruments_bell.cpp.o"
+    "command": "c++ -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -O3 -MD -MQ 'src/25a6634@@synth@exe/instruments_senoxf.cpp.o' -MF 'src/25a6634@@synth@exe/instruments_senoxf.cpp.o.d' -o 'src/25a6634@@synth@exe/instruments_senoxf.cpp.o' -c ../../src/instruments/senoxf.cpp",
+    "file": "../../src/instruments/senoxf.cpp",
+    "output": "src/25a6634@@synth@exe/instruments_senoxf.cpp.o"
   },
   {
     "directory": "/Users/pauri/PAV/P5/build/release",

@@ -1,0 +1,1 @@
+1 sintesisFM ADSR_A=0; ADSR_D=0; ADSR_S=0; ADSR_R=15; N = 40; N1=4; N2=1; I=0.0001;
