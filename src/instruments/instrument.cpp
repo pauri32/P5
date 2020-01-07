@@ -3,7 +3,7 @@
 #include "seno.h"
 #include "senovibrato.h"
 #include "sintesisFM.h"
-
+#include "bell.h"
 /*
   For each new instrument:
   - Add the header in this file
@@ -29,6 +29,9 @@ namespace upc {
     }
     if (name == "sintesisFM") {
       pInst = (Instrument *) new sintesisFM(parameters);
+    }
+    if (name == "bell") {
+      pInst = (Instrument *) new bell(parameters);
     }
     return pInst;
   }

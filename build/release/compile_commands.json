@@ -49,6 +49,12 @@
   },
   {
     "directory": "/Users/pauri/PAV/P5/build/release",
+    "command": "c++ -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -O3 -MD -MQ 'src/25a6634@@synth@exe/instruments_bell.cpp.o' -MF 'src/25a6634@@synth@exe/instruments_bell.cpp.o.d' -o 'src/25a6634@@synth@exe/instruments_bell.cpp.o' -c ../../src/instruments/bell.cpp",
+    "file": "../../src/instruments/bell.cpp",
+    "output": "src/25a6634@@synth@exe/instruments_bell.cpp.o"
+  },
+  {
+    "directory": "/Users/pauri/PAV/P5/build/release",
     "command": "c++ -Isrc/25a6634@@synth@exe -Isrc -I../../src -I../../src/include -I../../src/synth -I../../src/instruments -I../../src/pav/docopt_cpp -Xclang -fcolor-diagnostics -pipe -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -O3 -MD -MQ 'src/25a6634@@synth@exe/synth_envelope_adsr.cpp.o' -MF 'src/25a6634@@synth@exe/synth_envelope_adsr.cpp.o.d' -o 'src/25a6634@@synth@exe/synth_envelope_adsr.cpp.o' -c ../../src/synth/envelope_adsr.cpp",
     "file": "../../src/synth/envelope_adsr.cpp",
     "output": "src/25a6634@@synth@exe/synth_envelope_adsr.cpp.o"
