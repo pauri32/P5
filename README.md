@@ -54,8 +54,8 @@ visualizar el funcionamiento de la curva ADSR.
 				(A=0.1;D=0.01;S=0;R=0.01)
 
 * Un instrumento *plano*, como los de cuerdas frotadas (violines y semejantes) o algunos de viento. En ellos, el
-  ataque es relativamente rápido hasta alcanzar el nivel de mantenimiento (sin sobrecarga), y la liberación también
-  es bastante rápida.
+  ataque es relativamente rápido hasta alcanzar el nivel de mantenimiento (sin sobrecarga), y la liberación también es bastante rápida.
+
 		<img src="img/adsr_plano.png" width="480" align="center">
 				(A=0.1;D=0.01;S=0.2;R=0.01)
 
