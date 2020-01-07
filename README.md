@@ -41,26 +41,12 @@ visualizar el funcionamiento de la curva ADSR.
   mantenimiemto y el sonido se apague lentamente.
   - Para un instrumento de este tipo, tenemos dos situaciones posibles:
     * El intérprete mantiene la nota *pulsada* hasta su completa extinción.
-
-<img src="img/adsr_p1.png" width="480" align="center">
-		
-				(A=0.1;D=1;S=0;R=0.01)
-
     * El intérprete da por finalizada la nota antes de su completa extinción, iniciándose una disminución rápida del
       sonido hasta su finalización.
-
-<img src="img/adsr_p2.png" width="480" align="center">
-				
-				(A=0.1;D=0.01;S=0;R=0.01)
-
   - Debera representar en esta memoria **ambos** posibles finales de la nota.
 * Un instrumento *plano*, como los de cuerdas frotadas (violines y semejantes) o algunos de viento. En ellos, el
   ataque es relativamente rápido hasta alcanzar el nivel de mantenimiento (sin sobrecarga), y la liberación también
   es bastante rápida.
-
-<img src="img/adsr_plano.png" width="480" align="center">
-				
-				(A=0.1;D=0.01;S=0;R=0.01)
 
 Para los cuatro casos, deberá incluir una gráfica en la que se visualice claramente la curva ADSR. Deberá añadir la
 información necesaria para su correcta interpretación, aunque esa información puede reducirse a colocar etiquetas y
@@ -209,6 +195,11 @@ en semitonos.
 
 - Use el instrumento para generar un vibrato de *parámetros razonables* e incluya una gráfica en la que se vea,
   claramente, la correspondencia entre los valores `N1`, `N2` e `I` con la señal obtenida.
+
+		<img src="img/Captura_senovibrato.png" width="480" align="center">
+
+En esta imagen podemos ver la fft de la señal senovibrato.wav muestreada a 235232, utilizando N1=3 y N2=1. Podemos ver que los 8 principales picos correspondientes a las notas del doremi y a un lado los picos resultantes al vibrato. Alteando los valores de I veríamos como estos picos se reparten más o menos pues la amplitud del pico principal se repartiría entre los picos generados por el vibrato. Aumentando la I el ancho de banda aumentaría dificultando la identificación de cada nota. 
+
 - Use el instrumento para generar un sonido tipo clarinete y otro tipo campana. Tome los parámetros del sonido (N1,
   N2 e I) y de la envolvente ADSR del citado artículo. Con estos sonidos, genere sendas escalas diatónicas (fichero
   `doremi.sco`) y ponga el resultado en los ficheros `work/doremi/clarinete.wav` y `work/doremi/campana.work`.
