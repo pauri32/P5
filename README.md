@@ -27,6 +27,13 @@ visualizar el funcionamiento de la curva ADSR.
 
 * Un instrumento con una envolvente ADSR genérica, para el que se aprecie con claridad cada uno de sus parámetros:
   ataque (A), caída (D), mantenimiento (S) y liberación (R).
+  - La envolvente ADSR genérica que hemos generado es tal que todos los parámetros son iguales a 0.1. Con la siguiente gráfica se puede ver con claridad cada uno de los estados de la curva:
+  	* A:	De 0 al primer periodo la curva crece.
+	* D:	De A al segundo periodo la curva decrece hasta llegar a una constante.
+	* S:	De B al tercer periodo la curva se mantiene constante.
+	* R:	De S al tercer periodo la curva vuelve a decaer hasta 0.
+	
+	
 * Un instrumento *percusivo*, como una guitarra o un piano, en el que el sonido tenga un ataque rápido, no haya
   mantenimiemto y el sonido se apague lentamente.
   - Para un instrumento de este tipo, tenemos dos situaciones posibles:
@@ -77,7 +84,7 @@ seno::seno(const std::string &param)
 
   //Create a tbl with one period of a sinusoidal wave
   tbl.resize(N);
-  float phase = 0, step = 2 * M_PI /(float) N;
+  phase = 0, step = 2 * M_PI /(float) N;
   index = 0;
   for (int i=0; i < N ; ++i) {
     tbl[i] = sin(phase);
@@ -90,10 +97,10 @@ void seno::command(long cmd, long note, long vel) {
   if (cmd == 9) {		//'Key' pressed: attack begins
     bActive = true;
     adsr.start();
-    phase = 0;
+    index = 0;
 	  A = vel / 127.;
     float F0 = (440.00*pow(2,((float)note-69.00)/12.00))/SamplingRate;
-    step = 2*M_PI*F0;
+    step = tbl.size()*F0;
   }
 
   else if (cmd == 8) {	//'Key' released: sustain ends, release begins
@@ -115,10 +122,11 @@ const vector<float> & seno::synthesize() {
     return x;
 
   for (unsigned int i=0; i<x.size(); ++i) {
-    x[i] = A*sin(phase);
-    phase += step;
-    if (index == tbl.size())
+    if (round(index*step) == tbl.size()){
       index = 0;
+    }
+    x[i] = A*tbl[round(index*step)];
+    index++;
   }
   adsr(x); //apply envelope to x and update internal status of ADSR
 
@@ -129,6 +137,8 @@ const vector<float> & seno::synthesize() {
 - Explique qué método se ha seguido para asignar un valor a la señal a partir de los contenidos en la tabla, e incluya
   una gráfica en la que se vean claramente (use pelotitas en lugar de líneas) los valores de la tabla y los de la
   señal generada.
+  * En la tabla se guarda un periodo de un seno con N muestras. En el momento de usar la tabla, lo que decidiremos es la velocidad con la que cogemos estas muestras, con el objetivo de recorrer el seno de la tabla más rápido, con lo que generaremos frecuencias más altas, o más lento, para frecuencias más graves.
+  Para hacer un ejemplo que sea claro y simple, vamos a suponer que la tabla se ha registrado con solo 4 valores: (0,1,0,-1).
 - Si ha implementado la síntesis por tabla almacenada en fichero externo, incluya a continuación el código del método
   `command()`.
 
@@ -140,28 +150,23 @@ const vector<float> & seno::synthesize() {
   *literatura*).
   
   
+  	* Primero de todo, vemos la imágen de dos notas consecutivas (Do y Re) sin ningún efecto. Esta imagen nos servirá de referencia para comparar con las modificadas con los efectos del trémolo y el vibrato.
+  
+  		<img src="img/cap-seno.png" width="640" align="center">
   
   
-  Primero de todo, vemos la imágen de dos notas consecutivas (Do y Re) sin ningún efecto. Esta imagen nos servirá de referencia para comparar con las modificadas con los efectos del trémolo y el vibrato.
+ 	 * La siguiente señal corresponde a las mismas dos notas anteriores, pero la segunda ha sido alterada con un trémolo. Como vemos, este efecto introduce una variación en la amplitud del Re, independientemente del ataque y la caída.
   
-  <img src="img/cap-seno.png" width="640" align="center">
-  
-  
-  La siguiente señal corresponde a las mismas dos notas anteriores, pero la segunda ha sido alterada con un trémolo. Como vemos, este efecto introduce una variación en la amplitud del Re, independientemente del ataque y la caída.
-  
-  <img src="img/cap-tremolo.png" width="640" align="center">
+  		<img src="img/cap-tremolo.png" width="640" align="center">
   
   
-  En las siguientes imágenes la segunda nota ha sido modificada con un vibrato. La primera imagen corresponde a un vibrato natural, pero como no se apreciaban los efectos en la señal, hemos generado un segundo vibrato que exagerase este efecto.
+ 	 * En las siguientes imágenes la segunda nota ha sido modificada con un vibrato. La primera imagen corresponde a un vibrato natural, pero como no se apreciaban los efectos en la señal, hemos generado un segundo vibrato que exagerase este efecto.
   
-  <img src="img/cap-vibrato1.png" width="640" align="center">
+ 	 	<img src="img/cap-vibrato1.png" width="640" align="center">
   
-  Aquí vemos como el vibrato oscila longitudinalmente, comprimiendo y estirando la frecuencia. Esto se puede interpretar como subidas y bajadas de tono dentro de una misma nota, lo cual no tendría mucho sentido si se hiciese, como en esta segunda imagen, de manera muy marcada, pero si se hace en oscilaciones breves y rápidas la alteración es mínima y se genera un efecto agradable al oído.
+ 	 * Aquí vemos como el vibrato oscila longitudinalmente, comprimiendo y estirando la frecuencia. Esto se puede interpretar como subidas y bajadas de tono dentro de una misma nota, lo cual no tendría mucho sentido si se hiciese, como en esta segunda imagen, de manera muy marcada, pero si se hace en oscilaciones breves y rápidas la alteración es mínima y se genera un efecto agradable al oído.
   
-  <img src="img/cap-vibrato2.png" width="640" align="center">
-  
-  
-  
+  		<img src="img/cap-vibrato2.png" width="640" align="center">
   
   
 - Si ha generado algún efecto por su cuenta, explique en qué consiste, cómo lo ha implementado y qué resultado ha
@@ -198,6 +203,6 @@ Use el programa `synth` para generar canciones a partir de su partitura MIDI. Co
 También puede orquestar otros temas más complejos, como la banda sonora de *Hawaii5-0* o el villacinco de John
 Lennon *Happy Xmas (War Is Over)* (fichero `The_Christmas_Song_Lennon.sco`), o cualquier otra canción de su agrado
 o composición. Se valorará la riqueza instrumental, su modelado y el resultado final.
-- Coloque los ficheros generados, junto a sus ficheros `score`, `instruments` y `efffects`, en el directorio
+- Coloque los ficheros generados, junto a sus ficheros `score`, `instruments` y `effects`, en el directorio
   `work/music`.
 - Indique, a continuación, la orden necesaria para generar cada una de las señales usando los distintos ficheros.
