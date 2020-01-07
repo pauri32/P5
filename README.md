@@ -56,10 +56,7 @@ visualizar el funcionamiento de la curva ADSR.
 * Un instrumento *plano*, como los de cuerdas frotadas (violines y semejantes) o algunos de viento. En ellos, el
   ataque es relativamente rápido hasta alcanzar el nivel de mantenimiento (sin sobrecarga), y la liberación también
   es bastante rápida.
-
 		<img src="img/adsr_plano.png" width="480" align="center">
-
-
 				(A=0.1;D=0.01;S=0.2;R=0.01)
 
 Para los cuatro casos, deberá incluir una gráfica en la que se visualice claramente la curva ADSR. Deberá añadir la
