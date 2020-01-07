@@ -57,7 +57,7 @@ visualizar el funcionamiento de la curva ADSR.
   ataque es relativamente rápido hasta alcanzar el nivel de mantenimiento (sin sobrecarga), y la liberación también
   es bastante rápida.
 
-		<img src="img/adsr_p2.png" width="480" align="center">
+		<img src="img/adsr_plano.png" width="480" align="center">
 
 
 				(A=0.1;D=0.01;S=0.2;R=0.01)
